@@ -1,420 +1,91 @@
-people:
-  text: "Ile osób ma móc brać udział w grze?"
-  type: "single"
-  fact_name: "people"
-  answers: 
-    number_1: "Jedna"
-    number_2: "Dwie"
-    number_3: "Trzy"
-    number_4: "Cztery"
-    number_5: "Pięć"
-    number_6: "Sześć"
-    number_7: "Więcej niż sześć"
+who:
+	text: "Dla kogo chcesz kupić rower?"
+	type: "single"
+	fact_name: "who"
+	answers:
+		nr1: "Mężczyzna"
+		nr2: "Kobieta"
+		nr3: "Dziecko"
 
-age:
-  text: "W jakim przedziale wiekowym będzie najmłodszy gracz?"
-  type: "single"
-  fact_name: "age"
-  answers:
-    number_5: "Poniżej ósmego roku życia"
-    number_8: "Powyżej ósmego roku życia"
-    number_12: "Powyżej dwunastego roku życia"
+sidewheels:
+	text: "Czy chcesz kółka boczne?"
+	type: "single"
+	fact_name: "sidewheels"
+	answers:
+		nr1: "Tak"
+		nr2: "Nie"
 
 type:
-  text: "Jaki rodzaj gry Cię interesuje?"
-  type: "multiple"
-  fact_name: "type"
-  answers:
-    strategic: "Strategiczna"
-    random: "Losowa"
-    action: "Zręcznościowa"
-    logic: "Logiczna"
-    parody: "Mało poważna"
-    irrelevant: "Bez znaczenia"
+	text: "Jaki typ roweru preferujesz?"
+	type: "multiple"
+	fact_name: "type"
+	answers:
+		nr1: "Crossowy"
+		nr2: "Trekkingowy"
+		nr3: "Górski"
+		nr4: "Szosowy"
+		nr5: "Miejski"
+		nr6: "MTB"
+		nr7: "Nie wiem"
 
-type_6_people:
-  text: "Jaki rodzaj gry Cię interesuje?"
-  type: "multiple"
-  fact_name: "type"
-  answers:
-    strategic: "Strategiczna"
-    action: "Zręcznościowa"
-    parody: "Mało poważna"
-    irrelevant: "Bez znaczenia"
+what:
+	text: "Do jakich zastosowań potrzebujesz roweru?"
+	type: "multiple"
+	fact_name: "what"
+	answers:
+		nr1: "Jazda po mieście, zakupy"
+		nr2: "Wyprawy terenowe, po lesie, po górach"
+		nr3: "Długie wyprawy"
+		nr4: "Treningi, ściganie się"
+		
+height:
+	text: "Jaki masz wzrost?"
+	type: "single"
+	fact_name: "height"
+	answers:
+		nr1: "todo1"
 
-type_5_people:
-  text: "Jaki rodzaj gry Cię interesuje?"
-  type: "multiple"
-  fact_name: "type"
-  answers:
-    strategic: "Strategiczna"
-    action: "Zręcznościowa"
-    parody: "Mało poważna"
-    random: "Losowa"
-    irrelevant: "Bez znaczenia"
+light:
+	text: "Czy potrzebujesz oświetlenie?"
+	type: "single"
+	fact_name: "light"
+	answers:
+		nr1: "Tak"
+		nr2: "Nie"
 
-tradition:
-  text: "Czy przy poszukiwaniu brać pod uwagę gry tradycyjne?"
-  type: "single"
-  fact_name: "tradition"
-  answers: 
-    "yes": "Tak"
-    "no": "Nie"
+light2:
+	text: "Jaki rodzaj oświetlenia preferujesz?"
+	type: "single"
+	fact_name: "light2"
+	answers:
+		nr1: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
+		nr2: "Elektryczne (na baterie)"
+		nr3: "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)"
 
-type_more_than_hour:
-  text: "Jaki rodzaj gry Cię interesuje?"
-  type: "multiple"
-  fact_name: "type"
-  answers:
-    strategic: "Strategiczna"
-    parody: "Mało poważna"
-    irrelevant: "Bez znaczenia"
+amort:
+	text: "Czy potrzebujesz amortyzacji?"
+	type: "multiple"
+	fact_name: "amort"
+	answers:
+		nr1: "Widelec przedni"
+		nr2: "Siodełko"
 
-type_less_than_hour_5_people:
-  text: "Jaki rodzaj gry Cię interesuje?"
-  type: "multiple"
-  fact_name: "type"
-  answers:
-    random: "Losowa"
-    action: "Zręcznościowa"
-    irrelevant: "Bez znaczenia"
+equip:
+	text: "Wybierz dodatkowe wyposażenie:"
+	type: "multiple"
+	fact_name "equip"
+	answers:
+		nr1: "Bagażnik"
+		nr2: "Błotniki"
+		nr3: "Zaczepy do bagażnika"
+		nr4: "Nóżka"
+		nr5: "Koszyk przedni"
+		nr6: "Sakwy rowerowe"
 
-type_less_than_hour:
-  text: "Jaki rodzaj gry Cię interesuje?"
-  type: "multiple"
-  fact_name: "type"
-  answers:
-    random: "Losowa"
-    action: "Zręcznościowa"
-    logic: "Logiczna"
-    irrelevant: "Bez znaczenia"
-
-type_action:
-  text: "Czy jesteś zainteresowany grą zręcznościową?"
-  type: "single"
-  fact_name: "action"
-  answers:
-    "yes": "Tak"
-    "no": "Nie"
-
-type_random:
-  text: "Czy jesteś zainteresowany grą o dużej losowości?"
-  type: "single"
-  fact_name: "random"
-  answers:
-    "yes": "Tak"
-    "no": "Nie"
-
-preparation:
-  text: "Jak długiego przygotowania może wymagać gra (łącznie z wyjaśnieniem zasad)?"
-  type: "single"
-  fact_name: "preparation"
-  answers:
-    number_10: "Do 10 minut"
-    number_11: "Więcej niż 10 minut"
-
-outside:
-  text: "Czy jesteś zainteresowany grą w plenerze?"
-  type: "single"
-  fact_name: "outside"
-  answers:
-    "yes": "Tak"
-    "no": "Nie"
-
-action_kind:
-  text: "Jakiego rodzaju zręczności ma wymagać gra?"
-  type: "single"
-  fact_name: "action_kind"
-  answers:
-    perception: "Spostrzegawczość"
-    speed: "Szybkość reakcji"
-    precision: "Precyzja"
-    irrelevant: "Bez znaczenia"
-
-economic:
-  text: "Czy interesuje Cię gra z elementami ekonomii?"
-  type: "single"
-  fact_name: "economic"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie!"
-
-unreal:
-  text: "Czy interesuje Cię gra BARDZO mocno oderwana od rzeczywistości?"
-  type: "single"
-  fact_name: "unreal"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie!"
-
-hour:
-  text: "Czy gra może trwać dłużej niż godzinę?"
-  type: "single"
-  fact_name: "hour"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie!"
-
-hour_force:
-  text: "Czy czas dłuższy niż godzinę jest wymogiem?"
-  type: "single"
-  fact_name: "hour_force"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie!"
-
-offer_bitwa_morska:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Bitwa Morska. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_dixit:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Dixit. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_genius:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Geniusz. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_agricola:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Agricola. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_dobble:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Dobble. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_angry_birds:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Angry Birds Action Game. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_pedzace_zolwie:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Pędzące Żółwie. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_pitchcar:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę PitchCar. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_jenga:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Jenga. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_junglespeed:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Jungle Speed. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_dungeon_twister:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Dungeon Twister. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_rummikub:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Rummikub. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_szachy:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Szachy. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_superfarmer:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Super Farmer. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_bierki:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Bierki. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_madzong:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Madżong. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-only_one:
-  type: "single"
-  fact_name: "only_one"
-  text: "Czy gra ma dopuszczać możliwość gry większej liczby osób?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie!"
-
-offer_robinson:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Robinson Crusoe. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_domino:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Domino. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_chinczyk:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Chińczyk. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_corridor:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Corridor. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_blokus:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Blokus. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_monopoly:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Monopoly. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_osadnicy_z_catanu:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Osadnicy z Catanu. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_puerto_rico:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Puerto Rico. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_rokoko:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Rokoko. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_ryzyko:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Ryzyko. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_kolejka:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Kolejka. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_jumanji:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Jumanji. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_gra_o_tron:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Gra o Tron. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_small_world:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Small World. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej"
-
-offer_carcassone:
-  type: "single"
-  fact_name: "game"
-  text: "Proponujemy grę Carcassone. Może być?"
-  answers:
-    "yes": "Tak!"
-    "no": "Nie, szukajmy dalej" 
+breaks:
+	text: "Jakie hamulce preferujesz?"
+	type: "single"
+	fact_name: "breaks"
+	answers:
+		nr1: "Zwykłe, najtańsze (szczękowe)"
+		nr2: "Odporne na opady deszczowe i nie piszczące (tarczowe)"
