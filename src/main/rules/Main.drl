@@ -1,20 +1,13 @@
 package com.rowery
 
-import com.rowery.Main.Message;
+import com.rowery.Rower;
+import com.rowery.Engine;
 
-rule "Hello World"
-    when
-        m : Message( status == Message.HELLO, myMessage : message )
-    then
-        System.out.println( myMessage );
-        m.setMessage( "Goodbye cruel world" );
-        m.setStatus( Message.GOODBYE );
-        update( m );
-end
 
-rule "GoodBye"
-    when
-        Message( status == Message.GOODBYE, myMessage : message )
-    then
-        System.out.println( myMessage );
+rule "test-start"
+	when
+		r: Rower(status ==0 );
+	then
+		r.status = 1;
+		//Engine.Question();
 end
