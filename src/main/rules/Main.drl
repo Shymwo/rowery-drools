@@ -1,13 +1,13 @@
 package com.rowery
 
-import com.rowery.Rower;
+import com.rowery.Fact;
 import com.rowery.Engine;
 
 
 rule "test-start"
 	when
-		r: Rower(status ==0 );
 	then
-		r.status = 1;
-		//Engine.Question();
+		
+		Engine.Question("who");
+		System.out.println("aaa");
 end
