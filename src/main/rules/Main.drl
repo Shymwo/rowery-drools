@@ -9,6 +9,13 @@ rule "test-start"
 	then
 		
 		Engine.Question("who");
-		System.out.println("aaa");
+		
 end
 
+rule "fake"
+	when 
+		Fact(N("who"), V(1));
+	then
+
+		Engine.Question("sidewheels");
+end

@@ -1,34 +1,18 @@
 package com.rowery;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-import javax.swing.SwingUtilities;
-import javax.swing.border.EmptyBorder;
 
-import org.yaml.snakeyaml.*;
-
-import com.sun.xml.internal.ws.api.server.Container;
+import org.drools.runtime.StatefulKnowledgeSession;
+import org.yaml.snakeyaml.Yaml;
 
 public class Engine {
 	private String name;
@@ -36,10 +20,11 @@ public class Engine {
 	private String text;
 	private String type;
 	private HashMap<String, String> answers;
-	
+	private static StatefulKnowledgeSession ks;
 	private static Map<String, Map<String, Object>> map;
 	
-	public Engine(String filename){
+	public Engine(String filename,StatefulKnowledgeSession ksession){
+		ks = ksession;
 		Yaml yaml = new Yaml();
 		 try {
 		 map = (Map<String, Map<String, Object>>)yaml.load((InputStream)(new FileInputStream(new File(filename))));
@@ -90,13 +75,13 @@ public class Engine {
         		                  (HashMap<String, String>)(entry.getValue().get("answers")));
 		        	 
 		        	  }
-		        	  
+		 
 		          }
 		          
 		    
 		
 	}
-	private static int[] ShowQuestion(String fact, String type, String text,HashMap<String, String> ans){
+	private static void ShowQuestion(String fact, String type, String text,HashMap<String, String> ans){
 		
 		ArrayList<String> answer = new ArrayList<String>();
 		ArrayList<String> labels = new ArrayList<String>();
@@ -109,8 +94,8 @@ public class Engine {
 
 
 		 JList list = new JList(answer.toArray());
-		 if(type.equals("single"))  
-			 list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
+		// if(type.equals("single"))  
+			// list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
 		 
 			 
 		    Object[] options = {text, " ", list};
@@ -119,7 +104,11 @@ public class Engine {
 		    	options = new Object[] {text, " ", "Zaznacz przynajmniej jedną!", " ", list };
 		    }
 		    
-		    return list.getSelectedIndices();
+		    for(int x : list.getSelectedIndices()){
+		    	ks.insert(new Fact(fact, x));
+		    		System.out.println(fact);
+		    		System.out.println(x);
+		    }
 		
 
 		

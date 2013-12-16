@@ -1,9 +1,9 @@
 package com.rowery;
 
 public class Fact {
-	public int status =0; //fake do testowania 
 	private String name;
 	private int val;
+	
 	private int getVal() {
 		return val;
 	}
@@ -17,8 +17,20 @@ public class Fact {
 		this.name = name;
 	}
 	
-	
-	
+	public Fact(String n, int v){
+		name=n;
+		val=v;
+		
+	}
+	public boolean N(String n){
+		return name.equals(n);
+		
+		
+	}
+	public boolean V(int v){
+		return val==v;
+		
+	}
 	
 	
 	

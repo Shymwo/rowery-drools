@@ -27,7 +27,7 @@ public class Main {
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
             // go !
           //  ksession.insert(new Fact());
-            Engine e = new Engine("yaml/questions.yaml");
+            Engine e = new Engine("yaml/questions.yaml",ksession);
             ksession.fireAllRules();
             logger.close();
         } catch (Throwable t) {
