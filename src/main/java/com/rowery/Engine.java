@@ -1,6 +1,8 @@
 package com.rowery;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,16 +12,23 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
 import org.yaml.snakeyaml.*;
+
+import com.sun.xml.internal.ws.api.server.Container;
 
 public class Engine {
 	private String name;
@@ -91,23 +100,36 @@ public class Engine {
 		
 		ArrayList<String> answer = new ArrayList<String>();
 		ArrayList<String> labels = new ArrayList<String>();
-		
+	
 		for (String key : ans.keySet()) {
 			answer.add(ans.get(key));
+	
 			labels.add(key);
 		}
-  	    JList list = new JList(answer.toArray());
-  	    
-  	 
-  	    Object[] options = {text, " ", list};
-  	    while (list.getSelectedIndices().length < 1) {
-  	    	JOptionPane.showMessageDialog(null, options, "Select multiple answers", JOptionPane.PLAIN_MESSAGE);
-  	    	options = new Object[] {text, " ", "Error: Select atleast one answer!", " ", list };
-  	    }
-  	    return list.getSelectedIndices();
-  	
+
+
+		 JList list = new JList(answer.toArray());
+		 if(type.equals("single"))  
+			 list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
+		 
+			 
+		    Object[] options = {text, " ", list};
+		    while (list.getSelectedIndices().length < 1) {
+		    	JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
+		    	options = new Object[] {text, " ", "Zaznacz przynajmniej jedną!", " ", list };
+		    }
+		    
+		    return list.getSelectedIndices();
+		
+
+		
 		
 	}
+	
+	
+
+	
+	
 	
 	public static void Answer(){
 		
