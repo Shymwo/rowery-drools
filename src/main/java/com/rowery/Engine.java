@@ -130,9 +130,9 @@ public class Engine {
           }
 
 		 JList list = new JList(ANSWERS.toArray());
-
+		 list.setEnabled(false); 
 		    Object[] options = {text, " ", list};
-	
+		    
 		    	JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
 		    
 
