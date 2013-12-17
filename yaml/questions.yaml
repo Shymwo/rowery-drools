@@ -89,3 +89,10 @@ breaks:
  answers:
   nr1: "Zwykłe, najtańsze (szczękowe)"
   nr2: "Odporne na opady deszczowe i nie piszczące (tarczowe)"
+  
+answer:
+ text: "Wynik"
+ answers:
+  rower1: "Zwykłe, najtańsze (szczękowe)"
+ 
+  

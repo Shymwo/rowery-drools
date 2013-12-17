@@ -30,6 +30,7 @@ public class Main {
             Engine e = new Engine("yaml/questions.yaml",ksession);
             ksession.fireAllRules();
             logger.close();
+            e.ShowAnswer();
         } catch (Throwable t) {
             t.printStackTrace();
         }

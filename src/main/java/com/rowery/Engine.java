@@ -22,6 +22,7 @@ public class Engine {
 	private HashMap<String, String> answers;
 	private static StatefulKnowledgeSession ks;
 	private static Map<String, Map<String, Object>> map;
+	private static ArrayList<String> ANSWERS = new ArrayList<String>();
 	
 	public Engine(String filename,StatefulKnowledgeSession ksession){
 		ks = ksession;
@@ -94,8 +95,8 @@ public class Engine {
 
 
 		 JList list = new JList(answer.toArray());
-		// if(type.equals("single"))  
-			// list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
+		 if(type.equals("single"))  
+			 list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
 		 
 			 
 		    Object[] options = {text, " ", list};
@@ -106,8 +107,7 @@ public class Engine {
 		    
 		    for(int x : list.getSelectedIndices()){
 		    	ks.insert(new Fact(fact, x));
-		    		System.out.println(fact);
-		    		System.out.println(x);
+
 		    }
 		
 
@@ -118,10 +118,30 @@ public class Engine {
 	
 
 	
+	public void ShowAnswer(){
+		String text ="";
+		  for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
+        	  if(entry.getKey().equals("answer")){
+   
+		           text=       (String)(entry.getValue().get("text"));
+		       
+        	  }
+ 
+          }
+
+		 JList list = new JList(ANSWERS.toArray());
+
+		    Object[] options = {text, " ", list};
 	
-	
-	public static void Answer(){
+		    	JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
+		    
+
 		
+	}
+	
+	
+	public static void Answer(String name){
+		ANSWERS.add(name);
 		
 	}
 

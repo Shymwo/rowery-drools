@@ -11,11 +11,17 @@ rule "test-start"
 		Engine.Question("who");
 		
 end
-
-rule "fake"
+rule "fake1"
 	when 
-		Fact(N("who"), V(1));
+		Fact(name("who"), val==1);
 	then
 
-		Engine.Question("sidewheels");
+		Engine.Answer("rower1");
+end
+rule "fake"
+	when 
+		Fact(name("who"), val==1);
+	then
+
+		Engine.Answer("rower1");
 end
