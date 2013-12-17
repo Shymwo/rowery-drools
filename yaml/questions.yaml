@@ -1,91 +1,91 @@
 who:
-	text: "Dla kogo chcesz kupić rower?"
-	type: "single"
-	fact_name: "who"
-	answers:
-		nr1: "Mężczyzna"
-		nr2: "Kobieta"
-		nr3: "Dziecko"
+ text: "Dla kogo chcesz kupić rower?"
+ type: "single"
+ fact_name: "who"
+ answers:
+  nr1: "Mężczyzna"
+  nr2: "Kobieta"
+  nr3: "Dziecko"
 
 sidewheels:
-	text: "Czy chcesz kółka boczne?"
-	type: "single"
-	fact_name: "sidewheels"
-	answers:
-		nr1: "Tak"
-		nr2: "Nie"
+ text: "Czy chcesz kółka boczne?"
+ type: "single"
+ fact_name: "sidewheels"
+ answers:
+  nr1: "Tak"
+  nr2: "Nie"
 
 type:
-	text: "Jaki typ roweru preferujesz?"
-	type: "multiple"
-	fact_name: "type"
-	answers:
-		nr1: "Crossowy"
-		nr2: "Trekkingowy"
-		nr3: "Górski"
-		nr4: "Szosowy"
-		nr5: "Miejski"
-		nr6: "MTB"
-		nr7: "Nie wiem"
+ text: "Jaki typ roweru preferujesz?"
+ type: "multiple"
+ fact_name: "type"
+ answers:
+  nr1: "Crossowy"
+  nr2: "Trekkingowy"
+  nr3: "Górski"
+  nr4: "Szosowy"
+  nr5: "Miejski"
+  nr6: "MTB"
+  nr7: "Nie wiem"
 
 what:
-	text: "Do jakich zastosowań potrzebujesz roweru?"
-	type: "multiple"
-	fact_name: "what"
-	answers:
-		nr1: "Jazda po mieście, zakupy"
-		nr2: "Wyprawy terenowe, po lesie, po górach"
-		nr3: "Długie wyprawy"
-		nr4: "Treningi, ściganie się"
-		
+ text: "Do jakich zastosowań potrzebujesz roweru?"
+ type: "multiple"
+ fact_name: "what"
+ answers:
+  nr1: "Jazda po mieście, zakupy"
+  nr2: "Wyprawy terenowe, po lesie, po górach"
+  nr3: "Długie wyprawy"
+  nr4: "Treningi, ściganie się"
+  
 height:
-	text: "Jaki masz wzrost?"
-	type: "single"
-	fact_name: "height"
-	answers:
-		nr1: "todo1"
+ text: "Jaki masz wzrost?"
+ type: "single"
+ fact_name: "height"
+ answers:
+  nr1: "todo1"
 
 light:
-	text: "Czy potrzebujesz oświetlenie?"
-	type: "single"
-	fact_name: "light"
-	answers:
-		nr1: "Tak"
-		nr2: "Nie"
+ text: "Czy potrzebujesz oświetlenie?"
+ type: "single"
+ fact_name: "light"
+ answers:
+  nr1: "Tak"
+  nr2: "Nie"
 
 light2:
-	text: "Jaki rodzaj oświetlenia preferujesz?"
-	type: "single"
-	fact_name: "light2"
-	answers:
-		nr1: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
-		nr2: "Elektryczne (na baterie)"
-		nr3: "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)"
+ text: "Jaki rodzaj oświetlenia preferujesz?"
+ type: "single"
+ fact_name: "light2"
+ answers:
+  nr1: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
+  nr2: "Elektryczne (na baterie)"
+  nr3: "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)"
 
 amort:
-	text: "Czy potrzebujesz amortyzacji?"
-	type: "multiple"
-	fact_name: "amort"
-	answers:
-		nr1: "Widelec przedni"
-		nr2: "Siodełko"
+ text: "Czy potrzebujesz amortyzacji?"
+ type: "multiple"
+ fact_name: "amort"
+ answers:
+  nr1: "Widelec przedni"
+  nr2: "Siodełko"
 
 equip:
-	text: "Wybierz dodatkowe wyposażenie:"
-	type: "multiple"
-	fact_name "equip"
-	answers:
-		nr1: "Bagażnik"
-		nr2: "Błotniki"
-		nr3: "Zaczepy do bagażnika"
-		nr4: "Nóżka"
-		nr5: "Koszyk przedni"
-		nr6: "Sakwy rowerowe"
+ text: "Wybierz dodatkowe wyposażenie:"
+ type: "multiple"
+ fact_name: "equip"
+ answers:
+  nr1: "Bagażnik"
+  nr2: "Błotniki"
+  nr3: "Zaczepy do bagażnika"
+  nr4: "Nóżka"
+  nr5: "Koszyk przedni"
+  nr6: "Sakwy rowerowe"
 
 breaks:
-	text: "Jakie hamulce preferujesz?"
-	type: "single"
-	fact_name: "breaks"
-	answers:
-		nr1: "Zwykłe, najtańsze (szczękowe)"
-		nr2: "Odporne na opady deszczowe i nie piszczące (tarczowe)"
+ text: "Jakie hamulce preferujesz?"
+ type: "single"
+ fact_name: "breaks"
+ answers:
+  nr1: "Zwykłe, najtańsze (szczękowe)"
+  nr2: "Odporne na opady deszczowe i nie piszczące (tarczowe)"
