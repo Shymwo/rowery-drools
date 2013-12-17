@@ -4,24 +4,9 @@ import com.rowery.Fact;
 import com.rowery.Engine;
 
 
-rule "test-start"
+rule "init"
 	when
 	then
-		
 		Engine.Question("who");
 		
-end
-rule "fake1"
-	when 
-		Fact(name("who"), val==1);
-	then
-
-		Engine.Answer("rower1");
-end
-rule "fake"
-	when 
-		Fact(name("who"), val==1);
-	then
-
-		Engine.Answer("rower1");
 end
