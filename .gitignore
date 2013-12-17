@@ -6,3 +6,5 @@
 *.ear
 /test.log
 !snakeyaml-1.13.jar
+.classpath
+bin/*
