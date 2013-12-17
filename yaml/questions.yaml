@@ -28,6 +28,80 @@ type:
   nr6: "MTB"
   nr7: "Nie wiem"
 
+
+height-m-mtb-g:
+ text: "Jaki masz wzrost?"
+ type: "single"
+ fact_name: "height"
+ answers:
+  nr1: "148 - 158"
+  nr2: "158 - 168"
+  nr3: "168 - 178"
+  nr4: "178 - 185"
+  nr5: "185 - 193"
+  nr6: "193 - 198"
+
+height-k-mtb-g:
+ text: "Jaki masz wzrost?"
+ type: "single"
+ fact_name: "height"
+ answers:
+  nr1: "148 - 158"
+  nr2: "158 - 168"
+  nr3: "168 - 178"
+  nr4: "178 - 185"
+
+height-m-mi-trek:
+ text: "Jaki masz wzrost?"
+ type: "single"
+ fact_name: "height"
+ answers:
+  nr1: "148 - 152"
+  nr2: "152 - 160"
+  nr3: "160 - 168"
+  nr4: "168 - 175"
+  nr5: "175 - 183"
+  nr6: "183 - 191"
+  nr7: "191 - 198"
+
+
+height-k-mi-trek:
+ text: "Jaki masz wzrost?"
+ type: "single"
+ fact_name: "height"
+ answers:
+  nr1: "147 - 155"
+  nr2: "155 - 160"
+  nr3: "160 - 165"
+  nr4: "165 - 172"
+  nr5: "172 - 180"
+
+
+height-sz:
+ text: "Jaki masz wzrost?"
+ type: "single"
+ fact_name: "height"
+ answers:
+  nr1: "152 - 160"
+  nr2: "160 - 168"
+  nr3: "168 - 175"
+  nr4: "175 - 183"
+  nr5: "183 - 191"
+  nr6: "191 - 198"
+  
+height-d:
+ text: "Jaki masz wzrost?"
+ type: "single"
+ fact_name: "height"
+ answers:
+  nr1: "85 - 110"
+  nr2: "110 - 120"
+  nr3: "120 - 135"
+  nr4: "135 - 145"
+  nr5: "145 - +"
+
+
+
 what:
  text: "Do jakich zastosowań potrzebujesz roweru?"
  type: "multiple"
@@ -38,12 +112,6 @@ what:
   nr3: "Długie wyprawy"
   nr4: "Treningi, ściganie się"
   
-height:
- text: "Jaki masz wzrost?"
- type: "single"
- fact_name: "height"
- answers:
-  nr1: "todo1"
 
 light:
  text: "Czy potrzebujesz oświetlenie?"
