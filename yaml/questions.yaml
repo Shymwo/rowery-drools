@@ -149,6 +149,17 @@ equip:
   nr3: "Nóżka"
   nr4: "Koszyk przedni"
   nr5: "Sakwy rowerowe"
+  nr6: "Pomiń"
+
+equip1:
+ text: "Wybierz dodatkowe wyposażenie:"
+ type: "multiple"
+ fact_name: "equip"
+ answers:
+  nr0: "Błotniki"
+  nr1: "Nóżka"
+  nr2: "Pomiń"
+
 
 breaks:
  text: "Jakie hamulce preferujesz?"

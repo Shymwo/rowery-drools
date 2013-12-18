@@ -58,7 +58,7 @@ rule "qlight"
 	then
 		Engine.Question("light");	
 end
-rule "glight2"
+rule "qlight2"
 	when
 		Fact(name("light"),val==0);
 	then
@@ -70,6 +70,36 @@ rule "qbreaks"
 		Engine.Question("breaks");
 end
 
+rule "qaddons"
+	when
+		(
+			Fact(name("type"), val == 0);
+			or
+			Fact(name("what"), val ==1);
+		)
+	then
+		Engine.Question("equip1");
+end
+
+rule"qaddons1"
+	when
+			exists Fact(name("type"));
+			Fact(name("type"), val != 0);
+			Fact(name("type"), val != 6);
+		
+	then
+		Engine.Question("equip");
+end
+
+rule"qaddons2"
+	when
+			exists Fact(name("what"));
+			Fact(name("what"), val != 1);
+	
+		
+	then
+		Engine.Question("equip");
+end
 //___________M____________________________
 
 rule "qheightmtb"
