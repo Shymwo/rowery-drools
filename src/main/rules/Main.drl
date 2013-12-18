@@ -4,9 +4,52 @@ import com.rowery.Fact;
 import com.rowery.Engine;
 
 
-rule "init"
+
+
+
+
+
+//-------Question-------------------------
+rule "qinit"
 	when
 	then
 		Engine.Question("who");
-		
 end
+rule "qtype"
+	when
+		(
+		Fact(name("who"), val ==0);
+		or 
+		Fact(name("who"), val ==1);
+		)
+	then
+		Engine.Question("type");
+end
+
+rule "qwhat"
+	when
+		Fact(name("type"), val ==6);
+	then
+		Engine.Question("what");
+end
+
+
+//___________M____________________________
+
+//___________K____________________________
+
+//____________Dziecko_____________________
+rule "qsidewheels"
+	when
+		Fact(name("who"), val == 2);
+	then
+		Engine.Question("sidewheels");
+end
+
+rule "qheight-d"
+	when
+		Fact(name("who"), val==2);
+	then
+		Engine.Question("height-d");
+end
+//-------Answer---------------------------
