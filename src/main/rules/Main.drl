@@ -11,6 +11,7 @@ import com.rowery.Engine;
 
 //-------Question-------------------------
 rule "qinit"
+	salience 2
 	when
 	then
 		Engine.Question("who");
@@ -33,6 +34,41 @@ rule "qwhat"
 		Engine.Question("what");
 end
 
+
+rule "qheightsz"
+	when
+		(	
+			Fact(name("who"), val ==0);
+			or
+			Fact(name("who"),val==1);
+		)
+		(
+			Fact(name("type"),val==3);
+			or
+			Fact(name("what"),val==2);
+		)
+	then
+		Engine.Question("height-sz");
+end
+
+
+rule "qlight"
+	when 
+		not (Fact(name("light")));
+	then
+		Engine.Question("light");	
+end
+rule "glight2"
+	when
+		Fact(name("light"),val==0);
+	then
+		Engine.Question("light2");
+end
+rule "qbreaks"
+	when
+	then
+		Engine.Question("breaks");
+end
 
 //___________M____________________________
 
@@ -66,6 +102,7 @@ rule "qheightmi"
 		)
 	then
 		Engine.Question("height-m-mi-trek");
+		insert(new Fact("light",0));
 end
 //___________K____________________________
 rule "qheightmtbk"
@@ -98,6 +135,7 @@ rule "qheightmik"
 		)
 	then
 		Engine.Question("height-k-mi-trek");
+		insert(new Fact("light",0));
 end
 //____________Dziecko_____________________
 rule "qsidewheels"
