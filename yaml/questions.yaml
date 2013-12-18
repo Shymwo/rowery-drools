@@ -3,30 +3,30 @@ who:
  type: "single"
  fact_name: "who"
  answers:
-  nr1: "Mężczyzna"
-  nr2: "Kobieta"
-  nr3: "Dziecko"
+  nr0: "Mężczyzna"
+  nr1: "Kobieta"
+  nr2: "Dziecko"
 
 sidewheels:
  text: "Czy chcesz kółka boczne?"
  type: "single"
  fact_name: "sidewheels"
  answers:
-  nr1: "Tak"
-  nr2: "Nie"
+  nr0: "Tak"
+  nr1: "Nie"
 
 type:
  text: "Jaki typ roweru preferujesz?"
  type: "multiple"
  fact_name: "type"
  answers:
-  nr1: "Crossowy"
-  nr2: "Trekkingowy"
-  nr3: "Górski"
-  nr4: "Szosowy"
-  nr5: "Miejski"
-  nr6: "MTB"
-  nr7: "Nie wiem"
+  nr0: "Crossowy"
+  nr1: "Trekkingowy"
+  nr2: "Górski"
+  nr3: "Szosowy"
+  nr4: "Miejski"
+  nr5: "MTB"
+  nr6: "Nie wiem"
 
 
 height-m-mtb-g:
@@ -34,35 +34,35 @@ height-m-mtb-g:
  type: "single"
  fact_name: "height"
  answers:
-  nr1: "148 - 158"
-  nr2: "158 - 168"
-  nr3: "168 - 178"
-  nr4: "178 - 185"
-  nr5: "185 - 193"
-  nr6: "193 - 198"
-
+  nr0: "148 - 158"
+  nr1: "158 - 168"
+  nr2: "168 - 178"
+  nr3: "178 - 185"
+  nr4: "185 - 193"
+  nr5: "193 - 198"
+  
 height-k-mtb-g:
  text: "Jaki masz wzrost?"
  type: "single"
  fact_name: "height"
  answers:
-  nr1: "148 - 158"
-  nr2: "158 - 168"
-  nr3: "168 - 178"
-  nr4: "178 - 185"
+  nr0: "148 - 158"
+  nr1: "158 - 168"
+  nr2: "168 - 178"
+  nr3: "178 - 185"
 
 height-m-mi-trek:
  text: "Jaki masz wzrost?"
  type: "single"
  fact_name: "height"
  answers:
-  nr1: "148 - 152"
-  nr2: "152 - 160"
-  nr3: "160 - 168"
-  nr4: "168 - 175"
-  nr5: "175 - 183"
-  nr6: "183 - 191"
-  nr7: "191 - 198"
+  nr0: "148 - 152"
+  nr1: "152 - 160"
+  nr2: "160 - 168"
+  nr3: "168 - 175"
+  nr4: "175 - 183"
+  nr5: "183 - 191"
+  nr6: "191 - 198"
 
 
 height-k-mi-trek:
@@ -70,11 +70,11 @@ height-k-mi-trek:
  type: "single"
  fact_name: "height"
  answers:
-  nr1: "147 - 155"
-  nr2: "155 - 160"
-  nr3: "160 - 165"
-  nr4: "165 - 172"
-  nr5: "172 - 180"
+  nr0: "147 - 155"
+  nr1: "155 - 160"
+  nr2: "160 - 165"
+  nr3: "165 - 172"
+  nr4: "172 - 180"
 
 
 height-sz:
@@ -82,23 +82,23 @@ height-sz:
  type: "single"
  fact_name: "height"
  answers:
-  nr1: "152 - 160"
-  nr2: "160 - 168"
-  nr3: "168 - 175"
-  nr4: "175 - 183"
-  nr5: "183 - 191"
-  nr6: "191 - 198"
+  nr0: "152 - 160"
+  nr1: "160 - 168"
+  nr2: "168 - 175"
+  nr3: "175 - 183"
+  nr4: "183 - 191"
+  nr5: "191 - 198"
   
 height-d:
  text: "Jaki masz wzrost?"
  type: "single"
  fact_name: "height"
  answers:
-  nr1: "85 - 110"
-  nr2: "110 - 120"
-  nr3: "120 - 135"
-  nr4: "135 - 145"
-  nr5: "145 - +"
+  nr0: "85 - 110"
+  nr1: "110 - 120"
+  nr2: "120 - 135"
+  nr3: "135 - 145"
+  nr4: "145 - +"
 
 
 
@@ -107,10 +107,10 @@ what:
  type: "multiple"
  fact_name: "what"
  answers:
-  nr1: "Jazda po mieście, zakupy"
-  nr2: "Wyprawy terenowe, po lesie, po górach"
-  nr3: "Długie wyprawy"
-  nr4: "Treningi, ściganie się"
+  nr0: "Jazda po mieście, zakupy"
+  nr1: "Wyprawy terenowe, po lesie, po górach"
+  nr2: "Długie wyprawy"
+  nr3: "Treningi, ściganie się"
   
 
 light:
@@ -118,45 +118,45 @@ light:
  type: "single"
  fact_name: "light"
  answers:
-  nr1: "Tak"
-  nr2: "Nie"
+  nr0: "Tak"
+  nr1: "Nie"
 
 light2:
  text: "Jaki rodzaj oświetlenia preferujesz?"
  type: "single"
  fact_name: "light2"
  answers:
-  nr1: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
-  nr2: "Elektryczne (na baterie)"
-  nr3: "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)"
+  nr0: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
+  nr1: "Elektryczne (na baterie)"
+  nr2: "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)"
 
 amort:
  text: "Czy potrzebujesz amortyzacji?"
  type: "multiple"
  fact_name: "amort"
  answers:
-  nr1: "Widelec przedni"
-  nr2: "Siodełko"
+  nr0: "Widelec przedni"
+  nr1: "Siodełko"
 
 equip:
  text: "Wybierz dodatkowe wyposażenie:"
  type: "multiple"
  fact_name: "equip"
  answers:
-  nr1: "Bagażnik"
-  nr2: "Błotniki"
-  nr3: "Zaczepy do bagażnika"
-  nr4: "Nóżka"
-  nr5: "Koszyk przedni"
-  nr6: "Sakwy rowerowe"
+  nr0: "Bagażnik"
+  nr1: "Błotniki"
+  nr2: "Zaczepy do bagażnika"
+  nr3: "Nóżka"
+  nr4: "Koszyk przedni"
+  nr5: "Sakwy rowerowe"
 
 breaks:
  text: "Jakie hamulce preferujesz?"
  type: "single"
  fact_name: "breaks"
  answers:
-  nr1: "Zwykłe, najtańsze (szczękowe)"
-  nr2: "Odporne na opady deszczowe i nie piszczące (tarczowe)"
+  nr0: "Zwykłe, najtańsze (szczękowe)"
+  nr1: "Odporne na opady deszczowe i nie piszczące (tarczowe)"
   
 answer:
  text: "Wynik"
