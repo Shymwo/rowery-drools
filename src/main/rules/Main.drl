@@ -18,9 +18,9 @@ end
 rule "qtype"
 	when
 		(
-		Fact(name("who"), val ==0);
-		or 
-		Fact(name("who"), val ==1);
+			Fact(name("who"), val ==0);
+			or 
+			Fact(name("who"), val ==1);
 		)
 	then
 		Engine.Question("type");
@@ -36,8 +36,69 @@ end
 
 //___________M____________________________
 
-//___________K____________________________
+rule "qheightmtb"
+	when
+		
+		Fact(name("who"), val ==0);
+		(
+			Fact(name("type"),val==0);
+			or
+			Fact(name("type"),val==2);
+			or
+			Fact(name("type"),val==5);
+			or
+			Fact(name("what"),val==1);
+		)
+	then
+		Engine.Question("height-m-mtb-g");
+end
 
+rule "qheightmi"
+	when
+		
+		Fact(name("who"), val ==0);
+		(
+			Fact(name("type"),val==1);
+			or
+			Fact(name("type"),val==4);
+			or
+			Fact(name("what"),val==0);
+		)
+	then
+		Engine.Question("height-m-mi-trek");
+end
+//___________K____________________________
+rule "qheightmtbk"
+	when
+		
+		Fact(name("who"), val ==1);
+		(
+			Fact(name("type"),val==0);
+			or
+			Fact(name("type"),val==2);
+			or
+			Fact(name("type"),val==5);
+			or
+			Fact(name("what"),val==1);
+		)
+	then
+		Engine.Question("height-k-mtb-g");
+end
+
+rule "qheightmik"
+	when
+		
+		Fact(name("who"), val ==1);
+		(
+			Fact(name("type"),val==1);
+			or
+			Fact(name("type"),val==4);
+			or
+			Fact(name("what"),val==0);
+		)
+	then
+		Engine.Question("height-k-mi-trek");
+end
 //____________Dziecko_____________________
 rule "qsidewheels"
 	when
