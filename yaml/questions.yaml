@@ -54,26 +54,21 @@ height-m-mi-trek:
  type: "single"
  fact_name: "height"
  answers:
-  0: "148 - 152"
   1: "152 - 160"
   2: "160 - 168"
   3: "168 - 175"
   4: "175 - 183"
   5: "183 - 191"
-  6: "191 - 198"
-
 
 height-k-mi-trek:
  text: "Jaki masz wzrost?"
  type: "single"
  fact_name: "height"
  answers:
-  0: "147 - 155"
-  1: "155 - 160"
-  2: "160 - 165"
-  3: "165 - 172"
-  4: "172 - 180"
-
+  1: "152 - 160"
+  2: "160 - 168"
+  3: "168 - 175"
+  4: "175 - 183"
 
 height-sz:
  text: "Jaki masz wzrost?"
@@ -124,15 +119,23 @@ light2:
  answers:
   0: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
   1: "Elektryczne (na baterie)"
+
+light3:
+ text: "Jaki rodzaj oświetlenia preferujesz?"
+ type: "single"
+ fact_name: "light2"
+ answers:
+  0: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
+  1: "Elektryczne (na baterie)"
   2: "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)"
 
 amort:
- text: "Czy potrzebujesz amortyzacji?"
+ text: "Czy potrzebujesz amortyzacji na widelcu przednim i siodle?"
  type: "multiple"
  fact_name: "amort"
  answers:
-  0: "Widelec przedni"
-  1: "Siodełko"
+  0: "Tak"
+  1: "Nie"
 
 equip:
  text: "Wybierz dodatkowe wyposażenie:"
@@ -141,18 +144,25 @@ equip:
  answers:
   0: "Bagażnik"
   1: "Błotniki"
-  2: "Zaczepy do bagażnika"
-  3: "Nóżka"
-  4: "Koszyk przedni"
-  5: "Sakwy rowerowe"
+  2: "Nóżka"
+  3: "Sakwy rowerowe"
+  4: "Kask"
 
 equip1:
  text: "Wybierz dodatkowe wyposażenie:"
  type: "multiple"
  fact_name: "equip"
  answers:
-  0: "Błotniki"
-  1: "Nóżka"
+  0: "Koszyk przedni"
+  1: "Sakwy rowerowe"
+  2: "Kask"
+
+equip2:
+ text: "Wybierz dodatkowe wyposażenie:"
+ type: "multiple"
+ fact_name: "equip"
+ answers:
+  0: "Kask"
 
 breaks:
  text: "Jakie hamulce preferujesz?"
@@ -167,7 +177,7 @@ sakwy:
   type: "single"
   fact_name: "sakwy"
   answers:
-   0: "Tanie"
+   0: "Tanie i niewielkie"
    1: "Wytrzymałe i nieprzemakalne"
   
 answer:

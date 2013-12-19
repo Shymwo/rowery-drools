@@ -28,6 +28,7 @@ public class Engine {
 	private static ArrayList<String> ANSWERS = new ArrayList<String>();
 	private static ArrayList<String> PROPS = new ArrayList<String>();
 	private static ArrayList<String> ADDONS = new ArrayList<String>();
+	private static Integer KOSZT = 0;
 
 	@SuppressWarnings("unchecked")
 	public Engine(String filename,StatefulKnowledgeSession ksession){
@@ -150,7 +151,8 @@ public class Engine {
 		list.setEnabled(false);
 		list2.setEnabled(false);
 		list3.setEnabled(false);
-		Object[] options = {text, list, text2, list2, text3, list3};
+		String text4 = "Szacowany koszt zakupów wynosi: " + KOSZT.toString()+" zł";
+		Object[] options = {text, list, text2, list2, text3, list3, text4};
 		JOptionPane.showMessageDialog(null, options, "Odpowiedź", JOptionPane.PLAIN_MESSAGE);
 	}
 
@@ -164,6 +166,10 @@ public class Engine {
 
 	public static void Addons(String name) {
 		ADDONS.add(name);
+	}
+
+	public static void Koszt(Integer kasa) {
+		KOSZT += kasa;
 	}
 
 }

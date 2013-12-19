@@ -83,6 +83,7 @@ end
 
 rule "qlight"
 	when
+		not (Fact(name("who") && val == "Dziecko"));
 		not (Fact(name("light")));
 	then
 		Engine.Question("light");
@@ -91,34 +92,61 @@ end
 rule "qlight2"
 	when
 		Fact(name("light"),val == "Tak");
+		not Fact(name("type"), val == "Trekkingowy");
 	then
 		Engine.Question("light2");
 end
 
-rule "qbreaks"
+rule "qlight3"
 	when
+		Fact(name("light"),val == "Tak");
+		Fact(name("type"), val == "Trekkingowy");
 	then
-		Engine.Question("breaks");
+		Engine.Question("light3");
+end
+
+//rule "qbreaks"
+//	when
+//	then
+//		Engine.Question("breaks");
+//end
+
+rule "qamort"
+	when
+		Fact(name("type"), val == "Trekkingowy");
+	then
+		Engine.Question("amort");
 end
 
 rule"qaddons"
 	when
+		not (Fact(name("who") && val == "Dziecko"));
+		(
 		Fact(name("type"), val == "Miejski")
 		or
 		Fact(name("type"), val == "Trekkingowy")
+		)
 	then
-		Engine.Question("equip");
+		Engine.Question("equip1");
 end
 
 rule "qaddons1"
 	when
+		not (Fact(name("who") && val == "Dziecko"));
+		(
 		Fact(name("type"), val == "Crossowy")
 		or
 		Fact(name("type"), val == "Górski")
-		or
-		Fact(name("type"), val == "Szosowy")
+		)
 	then
-		Engine.Question("equip1");
+		Engine.Question("equip");
+end
+
+rule "qaddons2"
+	when
+		Fact(name("who") && val == "Dziecko");
+	then
+		Engine.Question("equip2");
 end
 
 //___________M____________________________
@@ -258,6 +286,7 @@ rule "asidewheels"
 	then
 		Engine.Answer("z kółkami bocznymi");
 		Engine.Propose("Kross Kido 2014 - 449 zł");
+		Engine.Koszt(449);
 end
 
 rule "anosidewheels"
@@ -265,4 +294,270 @@ rule "anosidewheels"
 		Fact(name("sidewheels") && val == "Nie");
 	then
 		Engine.Propose("Kross Mini 2014 - 243 zł");
+		Engine.Koszt(243);
+end
+
+rule "aszheight1"
+	when
+		Fact(name("height") && val == "152 - 160");
+		Fact(name("type") && val == "Szosowy");
+	then
+		Engine.Answer("Wielkość ramy: 50-52 cm");
+		Engine.Answer("Długość wspornika kierownicy: 8-10 cm");
+end
+
+rule "aszheight2"
+	when
+		Fact(name("height") && val == "160 - 168");
+		Fact(name("type") && val == "Szosowy");
+	then
+		Engine.Answer("Wielkość ramy: 52-54 cm");
+		Engine.Answer("Długość wspornika kierownicy: 10-11 cm");end
+
+rule "aszheight3"
+	when
+		Fact(name("height") && val == "168 - 175");
+		Fact(name("type") && val == "Szosowy");
+	then
+		Engine.Answer("Wielkość ramy: 54-56 cm");
+		Engine.Answer("Długość wspornika kierownicy: 11-12 cm");
+end
+
+rule "aszheight4"
+	when
+		Fact(name("height") && val == "175 - 183");
+		Fact(name("type") && val == "Szosowy");
+	then
+		Engine.Answer("Wielkość ramy: 56-58 cm");
+		Engine.Answer("Długość wspornika kierownicy: 12-13 cm");
+end
+
+rule "aszheight5"
+	when
+		Fact(name("height") && val == "183 - 191");
+		Fact(name("type") && val == "Szosowy");
+	then
+		Engine.Answer("Wielkość ramy: 58-60 cm");
+		Engine.Answer("Długość wspornika kierownicy: 13-14 cm");
+end
+
+rule "aszheight6"
+	when
+		Fact(name("height") && val == "191 - 198");
+		Fact(name("type") && val == "Szosowy");
+	then
+		Engine.Answer("Wielkość ramy: 60-62 cm");
+		Engine.Answer("Długość wspornika kierownicy: 14-15 cm");
+end
+
+rule "amtbk1"
+	when
+		Fact(name("height") && (val == "148 - 158"));
+		Fact(name("type") && val == "Górski");
+	then
+		Engine.Answer("Wielkość ramy: S (15 cali)");
+end
+
+rule "amtbk2"
+	when
+		Fact(name("height") && (val == "158 - 168" || val == "168 - 178"));
+		Fact(name("type") && val == "Górski");
+	then
+		Engine.Answer("Wielkość ramy: M (17 cali)");
+end
+
+rule "amtbk3"
+	when
+		Fact(name("height") && (val == "178 - 185"));
+		Fact(name("type") && val == "Górski");
+	then
+		Engine.Answer("Wielkość ramy: L (19 cali)");
+end
+
+rule "amtbm"
+	when
+		Fact(name("height") && (val == "185 - 193" || val == "193 - 198"));
+		Fact(name("type") && val == "Górski");
+		Fact(name("who") && val == "Mężczyzna");
+	then
+		Engine.Answer("Wielkość ramy: XL (21 cali)");
+end
+
+rule "ahtrek1"
+	when
+		Fact(name("height") && (val == "152 - 160" || val == "160 - 168"));
+		Fact(name("type") && (val == "Trekkingowy" || val == "Crossowy" || val == "Miejski"));
+	then
+		Engine.Answer("Wielkość ramy: M (19 cali)");
+end
+
+rule "ahtrek2"
+	when
+		Fact(name("height") && (val == "168 - 175" || val == "175 - 183"));
+		Fact(name("type") && (val == "Trekkingowy" || val == "Crossowy" || val == "Miejski"));
+	then
+		Engine.Answer("Wielkość ramy: L (21 cali)");
+end
+
+rule "ahtrek3"
+	when
+		Fact(name("height") && (val == "183 - 191"));
+		Fact(name("type") && (val == "Trekkingowy" || val == "Crossowy" || val == "Miejski"));
+	then
+		Engine.Answer("Wielkość ramy: XL (23 cali)");
+end
+
+rule "arkola1"
+	when
+		Fact(name("type"), val == "Miejski")
+		or
+		Fact(name("type"), val == "Trekkingowy")
+		or
+		Fact(name("type"), val == "Crossowy")
+		or
+		Fact(name("type"), val == "Szosowy")
+	then
+		Engine.Answer("Wielkość koła: 28 cali");
+end
+
+rule "arkola2"
+	when
+		Fact(name("type"), val == "Górski")
+	then
+		Engine.Answer("Wielkość koła: 26 cali");
+end
+
+rule "asakwy1"
+	when
+		Fact(name("sakwy"), val == "Tanie i niewielkie");
+	then
+		Engine.Addons("Sakwy Svartisen 2x17L - 85 zł");
+		Engine.Koszt(85);
+end
+
+rule "asakwy2"
+	when
+		Fact(name("sakwy"), val == "Wytrzymałe i nieprzemakalne");
+	then
+		Engine.Addons("Sakwy Crosso Dry Big 60L - 210zł");
+		Engine.Koszt(210);
+end
+
+rule "akoszyk"
+	when
+		Fact(name("equip"), val == "Koszyk przedni");
+	then
+		Engine.Addons("Koszyk przedni metal. B'TWIN 12L - 80zł");
+		Engine.Koszt(80);
+end
+
+rule "anozka"
+	when
+		Fact(name("equip"), val == "Nóżka");
+	then
+		Engine.Addons("Stopka uniwersalna B'TWIN (24-28\") - 40zł");
+		Engine.Koszt(40);
+end
+
+rule "abagaznik"
+	when
+		Fact(name("equip"), val == "Bagażnik");
+	then
+		Engine.Addons("Bagażnik CLASSIC B'TWIN - 100zł");
+		Engine.Koszt(100);
+end
+
+rule "ablotnik"
+	when
+		Fact(name("equip"), val == "Błotniki");
+	then
+		Engine.Addons("Błotnik 24\"/26\" lub 28\" B'TWIN - 30zł");
+		Engine.Koszt(30);
+end
+
+rule "arowertrek1"
+	when
+		Fact(name("type") && val == "Trekkingowy");
+		Fact(name("amort") && val == "Tak");
+		Fact(name("light2") && val == "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)");
+	then
+		Engine.Propose("Kross Trans Siberian 2014 - 1499 zł");
+		Engine.Koszt(1499);
+end
+
+rule "arowertrek2"
+	when
+		Fact(name("type") && val == "Trekkingowy");
+		Fact(name("amort") && val == "Nie");
+	then
+		Engine.Propose("Grand Autan 2013 - 749 zł");
+		Engine.Koszt(749);
+end
+
+rule "arowertrek3"
+	when
+		Fact(name("type") && val == "Trekkingowy");
+		Fact(name("amort") && val == "Tak");
+		not Fact(name("light2") && val == "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)");
+	then
+		Engine.Propose("Kross Trans Atlantic 2014 - 1299 zł");
+		Engine.Koszt(1299);
+end
+
+rule "arowergórski"
+	when
+		Fact(name("type") && val == "Górski");
+	then
+		Engine.Propose("RockRider 5.1 C1 B'TWIN - 800 zł");
+		Engine.Koszt(800);
+end
+
+rule "akask"
+	when
+		not (Fact(name("who") && val == "Dziecko"));
+		Fact(name("equip") && val == "Kask");
+	then
+		Engine.Addons("Kask CROSSFIRE niebieski 2013 BELL - 100 zł");
+		Engine.Koszt(100);
+end
+
+rule "akaskd"
+	when
+		Fact(name("who") && val == "Dziecko");
+		Fact(name("equip") && val == "Kask");
+	then
+		Engine.Addons("Kask Gavroche One Boy B'TWIN - 30 zł");
+		Engine.Koszt(100);
+end
+
+rule "arowerszosowy"
+	when
+		Fact(name("type") && val == "Szosowy");
+	then
+		Engine.Propose("Rower szosowy TRIBAN 3 UK B'TWIN - 1600 zł");
+		Engine.Koszt(1600);
+end
+
+rule "arowercrossowy"
+	when
+		Fact(name("type") && val == "Crossowy");
+	then
+		Engine.Propose("Kross Evado 1.0 2014 - 1400 zł");
+		Engine.Koszt(1400);
+end
+
+rule "arowermmiejski"
+	when
+		Fact(name("type") && val == "Miejski");
+	then
+		Engine.Propose("Rower miejski Elops 1 B'TWIN - 600 zł");
+		Engine.Koszt(600);
+end
+
+rule "aswiatlo1"
+	when
+		Fact(name("light2") && val == "Elektryczne (na baterie)");
+	then
+		Engine.Addons("Lumz zest. 10LUX + tylna B'TWIN\" - 90 zł");
+		Engine.Koszt(90);
 end
