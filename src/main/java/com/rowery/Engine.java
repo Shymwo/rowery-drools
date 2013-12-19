@@ -26,8 +26,8 @@ public class Engine {
 	private static StatefulKnowledgeSession ks;
 	private static Map<String, Map<String, Object>> map;
 	private static ArrayList<String> ANSWERS = new ArrayList<String>();
-
-	static boolean terminate = false;
+	private static ArrayList<String> PROPS = new ArrayList<String>();
+	private static ArrayList<String> ADDONS = new ArrayList<String>();
 
 	@SuppressWarnings("unchecked")
 	public Engine(String filename,StatefulKnowledgeSession ksession){
@@ -134,22 +134,36 @@ public class Engine {
 
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void ShowAnswer() {
-		if (!terminate) {
-			Map<String, Object> entry = map.get("answer");
-			String text = (String)(entry.get("text"));
+		Map<String, Object> entry = map.get("answer");
+		String text = (String)(entry.get("text"));
+		String text2 = (String)(entry.get("text2"));
+		String text3 = (String)(entry.get("text3"));
 
-			@SuppressWarnings("rawtypes")
-			JList list = new JList(ANSWERS.toArray());
-			list.setEnabled(false);
-			Object[] options = {text, " ", list};
-			JOptionPane.showMessageDialog(null, options, "Odpowiedź", JOptionPane.PLAIN_MESSAGE);
-		}
+		if (ADDONS.size()==0) text3 = "";
+		if (PROPS.size()==0) text2 = "";
+
+		JList list = new JList(ANSWERS.toArray());
+		JList list2 = new JList(PROPS.toArray());
+		JList list3 = new JList(ADDONS.toArray());
+		list.setEnabled(false);
+		list2.setEnabled(false);
+		list3.setEnabled(false);
+		Object[] options = {text, list, text2, list2, text3, list3};
+		JOptionPane.showMessageDialog(null, options, "Odpowiedź", JOptionPane.PLAIN_MESSAGE);
 	}
 
 	public static void Answer(String name){
 		ANSWERS.add(name);
+	}
+
+	public static void Propose(String name) {
+		PROPS.add(name);
+	}
+
+	public static void Addons(String name) {
+		ADDONS.add(name);
 	}
 
 }

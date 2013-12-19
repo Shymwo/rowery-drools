@@ -189,11 +189,80 @@ rule "qheight-d"
 	then
 		Engine.Question("height-d");
 end
+
+rule "qsakwy"
+	when
+		Fact(val.equals("Sakwy rowerowe"));
+	then
+		Engine.Question("sakwy");
+end
 //-------Answer---------------------------
 
-rule "aaa"
+rule "atype"
 	when
-		Fact(name("who"), val == "Dziecko");
+		f: Fact(name("type") && !val.equals("Nie wiem"))
 	then
-		Engine.Answer("dupa");
+		Engine.Answer(f.getVal());
+end
+
+rule "atyped"
+	when
+		f: Fact(name("who") && val == "Dziecko");
+	then
+		Engine.Answer("Dziecięcy");
+end
+
+rule "adwsize1"
+	when
+		Fact(name("height") && val == "85 - 110");
+	then
+		Engine.Answer("Rozmiar ramy: 11 cali");
+		Engine.Answer("Rozmiar koła: 12 cali");
+end
+
+rule "adwsize2"
+	when
+		Fact(name("height") && val == "110 - 120");
+	then
+		Engine.Answer("Rozmiar ramy: 12 cali");
+		Engine.Answer("Rozmiar koła: 14 cali");
+end
+
+rule "adwsize3"
+	when
+		Fact(name("height") && val == "120 - 135");
+	then
+		Engine.Answer("Rozmiar ramy: 13 cali");
+		Engine.Answer("Rozmiar koła: 16 cali");
+end
+
+rule "adwsize4"
+	when
+		Fact(name("height") && val == "135 - 145");
+	then
+		Engine.Answer("Rozmiar ramy: 14 cali");
+		Engine.Answer("Rozmiar koła: 20 cali");
+end
+
+rule "adwsize5"
+	when
+		Fact(name("height") && val == "145 - +");
+	then
+		Engine.Answer("Rozmiar ramy: 15 cali");
+		Engine.Answer("Rozmiar koła: 24 cali");
+end
+
+rule "asidewheels"
+	when
+		Fact(name("sidewheels") && val == "Tak");
+	then
+		Engine.Answer("z kółkami bocznymi");
+		Engine.Propose("Kross Kido 2014 - 449 zł");
+end
+
+rule "anosidewheels"
+	when
+		Fact(name("sidewheels") && val == "Nie");
+	then
+		Engine.Propose("Kross Mini 2014 - 243 zł");
 end

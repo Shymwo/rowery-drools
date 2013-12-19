@@ -161,8 +161,16 @@ breaks:
  answers:
   0: "Zwykłe, najtańsze (szczękowe)"
   1: "Odporne na deszcz i nie piszczące (tarczowe)"
+
+sakwy:
+  text: "Jakie sakwy wolisz?"
+  type: "single"
+  fact_name: "sakwy"
+  answers:
+   0: "Tanie"
+   1: "Wytrzymałe i nieprzemakalne"
   
 answer:
- text: "Wynik"
- answers:
-  rower1: "Zwykłe, najtańsze (szczękowe)"
+ text: "Rower, jakiego potrzebujesz to:"
+ text2: "Nasze propozycje:"
+ text3: "Dodatki, których potrzebujesz:"
