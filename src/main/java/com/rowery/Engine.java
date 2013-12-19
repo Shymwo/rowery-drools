@@ -1,4 +1,6 @@
 package com.rowery;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -23,6 +26,8 @@ public class Engine {
 	private static StatefulKnowledgeSession ks;
 	private static Map<String, Map<String, Object>> map;
 	private static ArrayList<String> ANSWERS = new ArrayList<String>();
+
+	static boolean terminate = false;
 
 	@SuppressWarnings("unchecked")
 	public Engine(String filename,StatefulKnowledgeSession ksession){
@@ -104,11 +109,21 @@ public class Engine {
 		 if(type.equals("single"))
 			 list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		 Object[] options = {text, " ", list};
+		 JButton button = new JButton();
+		 button.setText("Zamknij program");
+		 button.addActionListener(new ActionListener() {
+
+	            public void actionPerformed(ActionEvent e)
+	            {
+	                System.exit(0);
+	            }
+	        });
+
+		 Object[] options = {text, " ", list, button};
 		 JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
 
 		while (list.getSelectedIndices().length < 1 && type.equals("single")) {
-			options = new Object[] {text, " ", "Zaznacz odpowiedź!", " ", list };
+			options = new Object[] {text, " ", "Zaznacz odpowiedź!", " ", list, button };
 			JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
 		}
 
@@ -121,14 +136,16 @@ public class Engine {
 
 	@SuppressWarnings("unchecked")
 	public void ShowAnswer() {
-		Map<String, Object> entry = map.get("answer");
-		String text = (String)(entry.get("text"));
+		if (!terminate) {
+			Map<String, Object> entry = map.get("answer");
+			String text = (String)(entry.get("text"));
 
-		@SuppressWarnings("rawtypes")
-		JList list = new JList(ANSWERS.toArray());
-		list.setEnabled(false);
-		Object[] options = {text, " ", list};
-		JOptionPane.showMessageDialog(null, options, "Odpowiedź", JOptionPane.PLAIN_MESSAGE);
+			@SuppressWarnings("rawtypes")
+			JList list = new JList(ANSWERS.toArray());
+			list.setEnabled(false);
+			Object[] options = {text, " ", list};
+			JOptionPane.showMessageDialog(null, options, "Odpowiedź", JOptionPane.PLAIN_MESSAGE);
+		}
 	}
 
 	public static void Answer(String name){
