@@ -23,7 +23,8 @@ public class Engine {
 	private static StatefulKnowledgeSession ks;
 	private static Map<String, Map<String, Object>> map;
 	private static ArrayList<String> ANSWERS = new ArrayList<String>();
-	
+
+	@SuppressWarnings("unchecked")
 	public Engine(String filename,StatefulKnowledgeSession ksession){
 		ks = ksession;
 		Yaml yaml = new Yaml();
@@ -34,121 +35,111 @@ public class Engine {
 	          e.printStackTrace();
 	        }
 	}
-	
-	private String getName() {
+
+	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	private String getFact() {
+
+	public String getFact() {
 		return fact;
 	}
-	private void setFact(String fact) {
+
+	public void setFact(String fact) {
 		this.fact = fact;
 	}
-	private String getText() {
+
+	public String getText() {
 		return text;
 	}
-	private void setText(String text) {
+
+	public void setText(String text) {
 		this.text = text;
 	}
-	private String getType() {
+
+	public String getType() {
 		return type;
 	}
-	private void setType(String type) {
+
+	public void setType(String type) {
 		this.type = type;
 	}
-	private HashMap<String, String> getAnswers() {
+
+	public HashMap<String, String> getAnswers() {
 		return answers;
 	}
-	private void setAnswers(HashMap<String, String> answers) {
+
+	public void setAnswers(HashMap<String, String> answers) {
 		this.answers = answers;
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public static void Question(String name){
-	      
-		          for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
-		        	  if(entry.getKey().equals(name)){
-		        		  ShowQuestion( (String)(entry.getValue().get("fact_name")),
-        		                  (String)(entry.getValue().get("type")),
-        		                  (String)(entry.getValue().get("text")),
-        		                  (HashMap<String, String>)(entry.getValue().get("answers")));
-		        	 
-		        	  }
-		 
-		          }
-		          
-		    
-		
+
+      for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
+    	  if(entry.getKey().equals(name)){
+    		  ShowQuestion( (String)(entry.getValue().get("fact_name")),
+                  (String)(entry.getValue().get("type")),
+                  (String)(entry.getValue().get("text")),
+                  (HashMap<Integer, String>)(entry.getValue().get("answers")));
+    	  }
+      }
+
 	}
-	private static void ShowQuestion(String fact, String type, String text,HashMap<String, String> ans){
-		
+
+	@SuppressWarnings("unchecked")
+	private static void ShowQuestion(String fact, String type, String text,HashMap<Integer, String> ans) {
+
 		ArrayList<String> answer = new ArrayList<String>();
-		ArrayList<String> labels = new ArrayList<String>();
-	
-		for (String key : ans.keySet()) {
+		ArrayList<Integer> labels = new ArrayList<Integer>();
+
+		for (Integer key : ans.keySet()) {
 			answer.add(ans.get(key));
-	
+
 			labels.add(key);
 		}
 
+		@SuppressWarnings("rawtypes")
+		JList list = new JList(answer.toArray());
+		 if(type.equals("single"))
+			 list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		 JList list = new JList(answer.toArray());
-		 if(type.equals("single"))  
-			 list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
-		 
-			 
-		    Object[] options = {text, " ", list};
-		    while (list.getSelectedIndices().length < 1) {
-		    	JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
-		    	options = new Object[] {text, " ", "Zaznacz przynajmniej jedną!", " ", list };
-		    }
-		    
-		    for(int x : list.getSelectedIndices()){
-		    	ks.insert(new Fact(fact, x));
+		 Object[] options = {text, " ", list};
+		 JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
 
-		    }
-		
+		while (list.getSelectedIndices().length < 1 && type.equals("single")) {
+			options = new Object[] {text, " ", "Zaznacz odpowiedź!", " ", list };
+			JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
+		}
 
-		
-		
+	    for(Integer x : list.getSelectedIndices()){
+	    	ks.insert(new Fact(fact, ans.get(x)));
+
+	    }
+
 	}
-	
-	
 
-	
-	public void ShowAnswer(){
+	@SuppressWarnings("unchecked")
+	public void ShowAnswer() {
 		String text ="";
-		  for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
-        	  if(entry.getKey().equals("answer")){
-   
-		           text=       (String)(entry.getValue().get("text"));
-		       
-        	  }
- 
-          }
+		for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
+			if(entry.getKey().equals("answer")) {
+				text = (String)(entry.getValue().get("text"));
+			}
+		}
 
-		 JList list = new JList(ANSWERS.toArray());
-		 list.setEnabled(false); 
-		    Object[] options = {text, " ", list};
-		    
-		    	JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
-		    
-
-		
+		@SuppressWarnings("rawtypes")
+		JList list = new JList(ANSWERS.toArray());
+		list.setEnabled(false);
+		Object[] options = {text, " ", list};
+		JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
 	}
-	
-	
+
 	public static void Answer(String name){
 		ANSWERS.add(name);
-		
 	}
 
-	
-	
-	
-	
 }
-
-

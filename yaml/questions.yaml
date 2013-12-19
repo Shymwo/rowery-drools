@@ -3,66 +3,64 @@ who:
  type: "single"
  fact_name: "who"
  answers:
-  nr0: "Mężczyzna"
-  nr1: "Kobieta"
-  nr2: "Dziecko"
+  0: "Mężczyzna"
+  1: "Kobieta"
+  2: "Dziecko"
 
 sidewheels:
  text: "Czy chcesz kółka boczne?"
  type: "single"
  fact_name: "sidewheels"
  answers:
-  nr0: "Tak"
-  nr1: "Nie"
+  0: "Tak"
+  1: "Nie"
 
 type:
  text: "Jaki typ roweru preferujesz?"
- type: "multiple"
+ type: "single"
  fact_name: "type"
  answers:
-  nr0: "Crossowy"
-  nr1: "Trekkingowy"
-  nr2: "Górski"
-  nr3: "Szosowy"
-  nr4: "Miejski"
-  nr5: "MTB"
-  nr6: "Nie wiem"
-
+  0: "Crossowy"
+  1: "Trekkingowy"
+  2: "Górski"
+  3: "Szosowy"
+  4: "Miejski"
+  5: "Nie wiem"
 
 height-m-mtb-g:
  text: "Jaki masz wzrost?"
  type: "single"
  fact_name: "height"
  answers:
-  nr0: "148 - 158"
-  nr1: "158 - 168"
-  nr2: "168 - 178"
-  nr3: "178 - 185"
-  nr4: "185 - 193"
-  nr5: "193 - 198"
+  0: "148 - 158"
+  1: "158 - 168"
+  2: "168 - 178"
+  3: "178 - 185"
+  4: "185 - 193"
+  5: "193 - 198"
   
 height-k-mtb-g:
  text: "Jaki masz wzrost?"
  type: "single"
  fact_name: "height"
  answers:
-  nr0: "148 - 158"
-  nr1: "158 - 168"
-  nr2: "168 - 178"
-  nr3: "178 - 185"
+  0: "148 - 158"
+  1: "158 - 168"
+  2: "168 - 178"
+  3: "178 - 185"
 
 height-m-mi-trek:
  text: "Jaki masz wzrost?"
  type: "single"
  fact_name: "height"
  answers:
-  nr0: "148 - 152"
-  nr1: "152 - 160"
-  nr2: "160 - 168"
-  nr3: "168 - 175"
-  nr4: "175 - 183"
-  nr5: "183 - 191"
-  nr6: "191 - 198"
+  0: "148 - 152"
+  1: "152 - 160"
+  2: "160 - 168"
+  3: "168 - 175"
+  4: "175 - 183"
+  5: "183 - 191"
+  6: "191 - 198"
 
 
 height-k-mi-trek:
@@ -70,11 +68,11 @@ height-k-mi-trek:
  type: "single"
  fact_name: "height"
  answers:
-  nr0: "147 - 155"
-  nr1: "155 - 160"
-  nr2: "160 - 165"
-  nr3: "165 - 172"
-  nr4: "172 - 180"
+  0: "147 - 155"
+  1: "155 - 160"
+  2: "160 - 165"
+  3: "165 - 172"
+  4: "172 - 180"
 
 
 height-sz:
@@ -82,96 +80,89 @@ height-sz:
  type: "single"
  fact_name: "height"
  answers:
-  nr0: "152 - 160"
-  nr1: "160 - 168"
-  nr2: "168 - 175"
-  nr3: "175 - 183"
-  nr4: "183 - 191"
-  nr5: "191 - 198"
+  0: "152 - 160"
+  1: "160 - 168"
+  2: "168 - 175"
+  3: "175 - 183"
+  4: "183 - 191"
+  5: "191 - 198"
   
 height-d:
  text: "Jaki masz wzrost?"
  type: "single"
  fact_name: "height"
  answers:
-  nr0: "85 - 110"
-  nr1: "110 - 120"
-  nr2: "120 - 135"
-  nr3: "135 - 145"
-  nr4: "145 - +"
-
-
+  0: "85 - 110"
+  1: "110 - 120"
+  2: "120 - 135"
+  3: "135 - 145"
+  4: "145 - +"
 
 what:
  text: "Do jakich zastosowań potrzebujesz roweru?"
  type: "multiple"
  fact_name: "what"
  answers:
-  nr0: "Jazda po mieście, zakupy"
-  nr1: "Wyprawy terenowe, po lesie, po górach"
-  nr2: "Długie wyprawy"
-  nr3: "Treningi, ściganie się"
-  
+  0: "Jazda po mieście i robienie zakupów"
+  1: "Szybka jazda po terenie i po szosie"
+  2: "Jazda po trudnym terenie np. górskim"
+  3: "Długie wyprawy rowerowe z bagażem"
+  4: "Szybka jazda na czas"
 
 light:
  text: "Czy potrzebujesz oświetlenie?"
  type: "single"
  fact_name: "light"
  answers:
-  nr0: "Tak"
-  nr1: "Nie"
+  0: "Tak"
+  1: "Nie"
 
 light2:
  text: "Jaki rodzaj oświetlenia preferujesz?"
  type: "single"
  fact_name: "light2"
  answers:
-  nr0: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
-  nr1: "Elektryczne (na baterie)"
-  nr2: "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)"
+  0: "Dynamo (zawsze dostępne, spowalnia i hałasuje)"
+  1: "Elektryczne (na baterie)"
+  2: "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)"
 
 amort:
  text: "Czy potrzebujesz amortyzacji?"
  type: "multiple"
  fact_name: "amort"
  answers:
-  nr0: "Widelec przedni"
-  nr1: "Siodełko"
+  0: "Widelec przedni"
+  1: "Siodełko"
 
 equip:
  text: "Wybierz dodatkowe wyposażenie:"
  type: "multiple"
  fact_name: "equip"
  answers:
-  nr0: "Bagażnik"
-  nr1: "Błotniki"
-  nr2: "Zaczepy do bagażnika"
-  nr3: "Nóżka"
-  nr4: "Koszyk przedni"
-  nr5: "Sakwy rowerowe"
-  nr6: "Pomiń"
+  0: "Bagażnik"
+  1: "Błotniki"
+  2: "Zaczepy do bagażnika"
+  3: "Nóżka"
+  4: "Koszyk przedni"
+  5: "Sakwy rowerowe"
 
 equip1:
  text: "Wybierz dodatkowe wyposażenie:"
  type: "multiple"
  fact_name: "equip"
  answers:
-  nr0: "Błotniki"
-  nr1: "Nóżka"
-  nr2: "Pomiń"
-
+  0: "Błotniki"
+  1: "Nóżka"
 
 breaks:
  text: "Jakie hamulce preferujesz?"
  type: "single"
  fact_name: "breaks"
  answers:
-  nr0: "Zwykłe, najtańsze (szczękowe)"
-  nr1: "Odporne na opady deszczowe i nie piszczące (tarczowe)"
+  0: "Zwykłe, najtańsze (szczękowe)"
+  1: "Odporne na deszcz i nie piszczące (tarczowe)"
   
 answer:
  text: "Wynik"
  answers:
   rower1: "Zwykłe, najtańsze (szczękowe)"
- 
-  

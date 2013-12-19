@@ -3,25 +3,58 @@ package com.rowery
 import com.rowery.Fact;
 import com.rowery.Engine;
 
-
-
-
-
-
-
 //-------Question-------------------------
+
 rule "qinit"
 	salience 2
 	when
 	then
 		Engine.Question("who");
 end
+
+//---What do you really want?---
+
+rule "miejski"
+	when
+		Fact(name("what"), val.equals("Jazda po mieście i robienie zakupów"));
+	then
+		insert(new Fact("type", "Miejski"));
+end
+
+rule "cross"
+	when
+		Fact(name("what"), val.equals("Szybka jazda po terenie i po szosie"));
+	then
+		insert(new Fact("type", "Crossowy"));
+end
+
+rule "mtb"
+	when
+		Fact(name("what"), val.equals("Jazda po trudnym terenie np. górskim"));
+	then
+		insert(new Fact("type", "Górski"));
+end
+
+rule "trek"
+	when
+		Fact(name("what"), val.equals("Długie wyprawy rowerowe z bagażem"));
+	then
+		insert(new Fact("type", "Trekkingowy"));
+end
+
+rule "szos"
+	when
+		Fact(name("what"), val.equals("Szybka jazda na czas"));
+	then
+		insert(new Fact("type", "Szosowy"));
+end
+
 rule "qtype"
 	when
 		(
-			Fact(name("who"), val ==0);
-			or 
-			Fact(name("who"), val ==1);
+			Fact(name("who"), val.equals("Mężczyzna"));
+			or
+			Fact(name("who"), val.equals("Kobieta"));
 		)
 	then
 		Engine.Question("type");
@@ -29,155 +62,130 @@ end
 
 rule "qwhat"
 	when
-		Fact(name("type"), val ==6);
+		f: Fact(name("type"), val == "Nie wiem");
 	then
 		Engine.Question("what");
+		retract(f);
 end
-
 
 rule "qheightsz"
 	when
-		(	
-			Fact(name("who"), val ==0);
-			or
-			Fact(name("who"),val==1);
-		)
 		(
-			Fact(name("type"),val==3);
+			Fact(name("who"), val == "Mężczyzna");
 			or
-			Fact(name("what"),val==2);
+			Fact(name("who"),val == "Kobieta");
 		)
+		Fact(name("type"),val == "Szosowy");
 	then
 		Engine.Question("height-sz");
 end
 
 
 rule "qlight"
-	when 
+	when
 		not (Fact(name("light")));
 	then
-		Engine.Question("light");	
+		Engine.Question("light");
 end
+
 rule "qlight2"
 	when
-		Fact(name("light"),val==0);
+		Fact(name("light"),val == "Tak");
 	then
 		Engine.Question("light2");
 end
+
 rule "qbreaks"
 	when
 	then
 		Engine.Question("breaks");
 end
 
-rule "qaddons"
+rule"qaddons"
 	when
-		(
-			Fact(name("type"), val == 0);
-			or
-			Fact(name("what"), val ==1);
-		)
+		Fact(name("type"), val == "Miejski")
+		or
+		Fact(name("type"), val == "Trekkingowy")
+	then
+		Engine.Question("equip");
+end
+
+rule "qaddons1"
+	when
+		Fact(name("type"), val == "Crossowy")
+		or
+		Fact(name("type"), val == "Górski")
+		or
+		Fact(name("type"), val == "Szosowy")
 	then
 		Engine.Question("equip1");
 end
 
-rule"qaddons1"
-	when
-			exists Fact(name("type"));
-			Fact(name("type"), val != 0);
-			Fact(name("type"), val != 6);
-		
-	then
-		Engine.Question("equip");
-end
-
-rule"qaddons2"
-	when
-			exists Fact(name("what"));
-			Fact(name("what"), val != 1);
-	
-		
-	then
-		Engine.Question("equip");
-end
 //___________M____________________________
 
 rule "qheightmtb"
 	when
-		
-		Fact(name("who"), val ==0);
-		(
-			Fact(name("type"),val==0);
-			or
-			Fact(name("type"),val==2);
-			or
-			Fact(name("type"),val==5);
-			or
-			Fact(name("what"),val==1);
-		)
+
+		Fact(name("who"), val == "Mężczyzna");
+		Fact(name("type"),val == "Górski");
 	then
 		Engine.Question("height-m-mtb-g");
 end
 
 rule "qheightmi"
 	when
-		
-		Fact(name("who"), val ==0);
+
+		Fact(name("who"), val == "Mężczyzna");
 		(
-			Fact(name("type"),val==1);
+			Fact(name("type"),val == "Trekkingowy");
 			or
-			Fact(name("type"),val==4);
+			Fact(name("type"),val == "Miejski");
 			or
-			Fact(name("what"),val==0);
+			Fact(name("type"),val == "Crossowy");
 		)
 	then
 		Engine.Question("height-m-mi-trek");
-		insert(new Fact("light",0));
+		insert(new Fact("light","Tak"));
 end
+
 //___________K____________________________
+
 rule "qheightmtbk"
 	when
-		
-		Fact(name("who"), val ==1);
-		(
-			Fact(name("type"),val==0);
-			or
-			Fact(name("type"),val==2);
-			or
-			Fact(name("type"),val==5);
-			or
-			Fact(name("what"),val==1);
-		)
+
+		Fact(name("who"), val == "Kobieta");
+		Fact(name("type"),val == "Górski");
 	then
 		Engine.Question("height-k-mtb-g");
 end
 
 rule "qheightmik"
 	when
-		
-		Fact(name("who"), val ==1);
+
+		Fact(name("who"), val == "Kobieta");
 		(
-			Fact(name("type"),val==1);
+			Fact(name("type"),val == "Trekkingowy");
 			or
-			Fact(name("type"),val==4);
+			Fact(name("type"),val == "Miejski");
 			or
-			Fact(name("what"),val==0);
+			Fact(name("type"),val == "Crossowy");
 		)
 	then
 		Engine.Question("height-k-mi-trek");
-		insert(new Fact("light",0));
 end
+
 //____________Dziecko_____________________
+
 rule "qsidewheels"
 	when
-		Fact(name("who"), val == 2);
+		Fact(name("who"), val.equals("Dziecko"));
 	then
 		Engine.Question("sidewheels");
 end
 
 rule "qheight-d"
 	when
-		Fact(name("who"), val==2);
+		Fact(name("who"), val == "Dziecko");
 	then
 		Engine.Question("height-d");
 end

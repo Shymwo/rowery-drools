@@ -2,12 +2,12 @@ package com.rowery;
 
 public class Fact {
 	private String name;
-	private int val;
-	
-	public int getVal() {
+	private String val;
+
+	public String getVal() {
 		return val;
 	}
-	public void setVal(int val) {
+	public void setVal(String val) {
 		this.val = val;
 	}
 	public String getName() {
@@ -16,18 +16,14 @@ public class Fact {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public Fact(String n, int v){
+
+	public Fact(String n, String v){
 		name=n;
 		val=v;
-		
+
 	}
 	public boolean name(String n){
 		return name.equals(n);
-		
-		
 	}
 
-	
-	
 }

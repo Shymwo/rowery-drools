@@ -17,7 +17,7 @@ import com.helper.KnowledgeBaseUtil;
 public class Main {
 
     public static final void main(String[] args) {
-    	
+
         try {
             // load up the knowledge base
         	List<String> rules = new ArrayList<String>();
@@ -35,7 +35,5 @@ public class Main {
             t.printStackTrace();
         }
     }
-
-
 
 }
