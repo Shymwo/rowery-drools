@@ -190,3 +190,10 @@ rule "qheight-d"
 		Engine.Question("height-d");
 end
 //-------Answer---------------------------
+
+rule "aaa"
+	when
+		Fact(name("who"), val == "Dziecko");
+	then
+		Engine.Answer("dupa");
+end

@@ -79,14 +79,11 @@ public class Engine {
 	@SuppressWarnings("unchecked")
 	public static void Question(String name){
 
-      for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
-    	  if(entry.getKey().equals(name)){
-    		  ShowQuestion( (String)(entry.getValue().get("fact_name")),
-                  (String)(entry.getValue().get("type")),
-                  (String)(entry.getValue().get("text")),
-                  (HashMap<Integer, String>)(entry.getValue().get("answers")));
-    	  }
-      }
+		Map<String, Object> entry = map.get(name);
+		ShowQuestion( (String)(entry.get("fact_name")),
+				(String)(entry.get("type")),
+				(String)(entry.get("text")),
+				(HashMap<Integer, String>)(entry.get("answers")));
 
 	}
 
@@ -124,18 +121,14 @@ public class Engine {
 
 	@SuppressWarnings("unchecked")
 	public void ShowAnswer() {
-		String text ="";
-		for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
-			if(entry.getKey().equals("answer")) {
-				text = (String)(entry.getValue().get("text"));
-			}
-		}
+		Map<String, Object> entry = map.get("answer");
+		String text = (String)(entry.get("text"));
 
 		@SuppressWarnings("rawtypes")
 		JList list = new JList(ANSWERS.toArray());
 		list.setEnabled(false);
 		Object[] options = {text, " ", list};
-		JOptionPane.showMessageDialog(null, options, "Zaznacz", JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(null, options, "Odpowiedź", JOptionPane.PLAIN_MESSAGE);
 	}
 
 	public static void Answer(String name){
