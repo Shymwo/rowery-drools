@@ -83,7 +83,7 @@ end
 
 rule "qlight"
 	when
-		not (Fact(name("who") && val == "Dziecko"));
+		not (Fact(name("who") , val == "Dziecko"));
 		not (Fact(name("light")));
 	then
 		Engine.Question("light");
@@ -120,7 +120,7 @@ end
 
 rule"qaddons"
 	when
-		not (Fact(name("who") && val == "Dziecko"));
+		not (Fact(name("who") , val == "Dziecko"));
 		(
 		Fact(name("type"), val == "Miejski")
 		or
@@ -132,7 +132,7 @@ end
 
 rule "qaddons1"
 	when
-		not (Fact(name("who") && val == "Dziecko"));
+		not (Fact(name("who") , val == "Dziecko"));
 		(
 		Fact(name("type"), val == "Crossowy")
 		or
@@ -144,7 +144,7 @@ end
 
 rule "qaddons2"
 	when
-		Fact(name("who") && val == "Dziecko");
+		Fact(name("who") , val == "Dziecko");
 	then
 		Engine.Question("equip2");
 end
@@ -228,21 +228,21 @@ end
 
 rule "atype"
 	when
-		f: Fact(name("type") && !val.equals("Nie wiem"))
+		f: Fact(name("type") , !val.equals("Nie wiem"))
 	then
 		Engine.Answer(f.getVal());
 end
 
 rule "atyped"
 	when
-		f: Fact(name("who") && val == "Dziecko");
+		f: Fact(name("who") , val == "Dziecko");
 	then
 		Engine.Answer("Dziecięcy");
 end
 
 rule "adwsize1"
 	when
-		Fact(name("height") && val == "85 - 110");
+		Fact(name("height") , val == "85 - 110");
 	then
 		Engine.Answer("Rozmiar ramy: 11 cali");
 		Engine.Answer("Rozmiar koła: 12 cali");
@@ -250,7 +250,7 @@ end
 
 rule "adwsize2"
 	when
-		Fact(name("height") && val == "110 - 120");
+		Fact(name("height") , val == "110 - 120");
 	then
 		Engine.Answer("Rozmiar ramy: 12 cali");
 		Engine.Answer("Rozmiar koła: 14 cali");
@@ -258,7 +258,7 @@ end
 
 rule "adwsize3"
 	when
-		Fact(name("height") && val == "120 - 135");
+		Fact(name("height") , val == "120 - 135");
 	then
 		Engine.Answer("Rozmiar ramy: 13 cali");
 		Engine.Answer("Rozmiar koła: 16 cali");
@@ -266,7 +266,7 @@ end
 
 rule "adwsize4"
 	when
-		Fact(name("height") && val == "135 - 145");
+		Fact(name("height") , val == "135 - 145");
 	then
 		Engine.Answer("Rozmiar ramy: 14 cali");
 		Engine.Answer("Rozmiar koła: 20 cali");
@@ -274,7 +274,7 @@ end
 
 rule "adwsize5"
 	when
-		Fact(name("height") && val == "145 - +");
+		Fact(name("height") , val == "145 - +");
 	then
 		Engine.Answer("Rozmiar ramy: 15 cali");
 		Engine.Answer("Rozmiar koła: 24 cali");
@@ -282,7 +282,7 @@ end
 
 rule "asidewheels"
 	when
-		Fact(name("sidewheels") && val == "Tak");
+		Fact(name("sidewheels") , val == "Tak");
 	then
 		Engine.Answer("z kółkami bocznymi");
 		Engine.Propose("Kross Kido 2014 - 449 zł");
@@ -291,7 +291,7 @@ end
 
 rule "anosidewheels"
 	when
-		Fact(name("sidewheels") && val == "Nie");
+		Fact(name("sidewheels") , val == "Nie");
 	then
 		Engine.Propose("Kross Mini 2014 - 243 zł");
 		Engine.Koszt(243);
@@ -299,8 +299,8 @@ end
 
 rule "aszheight1"
 	when
-		Fact(name("height") && val == "152 - 160");
-		Fact(name("type") && val == "Szosowy");
+		Fact(name("height") , val == "152 - 160");
+		Fact(name("type") , val == "Szosowy");
 	then
 		Engine.Answer("Wielkość ramy: 50-52 cm");
 		Engine.Answer("Długość wspornika kierownicy: 8-10 cm");
@@ -308,16 +308,16 @@ end
 
 rule "aszheight2"
 	when
-		Fact(name("height") && val == "160 - 168");
-		Fact(name("type") && val == "Szosowy");
+		Fact(name("height") , val == "160 - 168");
+		Fact(name("type") , val == "Szosowy");
 	then
 		Engine.Answer("Wielkość ramy: 52-54 cm");
 		Engine.Answer("Długość wspornika kierownicy: 10-11 cm");end
 
 rule "aszheight3"
 	when
-		Fact(name("height") && val == "168 - 175");
-		Fact(name("type") && val == "Szosowy");
+		Fact(name("height") , val == "168 - 175");
+		Fact(name("type") , val == "Szosowy");
 	then
 		Engine.Answer("Wielkość ramy: 54-56 cm");
 		Engine.Answer("Długość wspornika kierownicy: 11-12 cm");
@@ -325,8 +325,8 @@ end
 
 rule "aszheight4"
 	when
-		Fact(name("height") && val == "175 - 183");
-		Fact(name("type") && val == "Szosowy");
+		Fact(name("height") , val == "175 - 183");
+		Fact(name("type") , val == "Szosowy");
 	then
 		Engine.Answer("Wielkość ramy: 56-58 cm");
 		Engine.Answer("Długość wspornika kierownicy: 12-13 cm");
@@ -334,8 +334,8 @@ end
 
 rule "aszheight5"
 	when
-		Fact(name("height") && val == "183 - 191");
-		Fact(name("type") && val == "Szosowy");
+		Fact(name("height") , val == "183 - 191");
+		Fact(name("type") , val == "Szosowy");
 	then
 		Engine.Answer("Wielkość ramy: 58-60 cm");
 		Engine.Answer("Długość wspornika kierownicy: 13-14 cm");
@@ -343,8 +343,8 @@ end
 
 rule "aszheight6"
 	when
-		Fact(name("height") && val == "191 - 198");
-		Fact(name("type") && val == "Szosowy");
+		Fact(name("height") , val == "191 - 198");
+		Fact(name("type") , val == "Szosowy");
 	then
 		Engine.Answer("Wielkość ramy: 60-62 cm");
 		Engine.Answer("Długość wspornika kierownicy: 14-15 cm");
@@ -352,57 +352,91 @@ end
 
 rule "amtbk1"
 	when
-		Fact(name("height") && (val == "148 - 158"));
-		Fact(name("type") && val == "Górski");
+		Fact(name("height") , (val == "148 - 158"));
+		Fact(name("type") , val == "Górski");
 	then
 		Engine.Answer("Wielkość ramy: S (15 cali)");
 end
 
 rule "amtbk2"
 	when
-		Fact(name("height") && (val == "158 - 168" || val == "168 - 178"));
-		Fact(name("type") && val == "Górski");
+		(
+			Fact(name("height") , val == "158 - 168");
+			or
+			Fact(name("height") , val == "168 - 178");	
+		)
+		Fact(name("type") , val == "Górski");
 	then
 		Engine.Answer("Wielkość ramy: M (17 cali)");
 end
 
 rule "amtbk3"
 	when
-		Fact(name("height") && (val == "178 - 185"));
-		Fact(name("type") && val == "Górski");
+		Fact(name("height") , (val == "178 - 185"));
+		Fact(name("type") , val == "Górski");
 	then
 		Engine.Answer("Wielkość ramy: L (19 cali)");
 end
 
 rule "amtbm"
 	when
-		Fact(name("height") && (val == "185 - 193" || val == "193 - 198"));
-		Fact(name("type") && val == "Górski");
-		Fact(name("who") && val == "Mężczyzna");
+		(
+			Fact(name("height") , (val == "185 - 193"));
+			or
+			Fact(name("height") , (val == "193 - 198"));
+		)
+		Fact(name("type") , val == "Górski");
+		Fact(name("who") , val == "Mężczyzna");
 	then
 		Engine.Answer("Wielkość ramy: XL (21 cali)");
 end
 
 rule "ahtrek1"
 	when
-		Fact(name("height") && (val == "152 - 160" || val == "160 - 168"));
-		Fact(name("type") && (val == "Trekkingowy" || val == "Crossowy" || val == "Miejski"));
+		(
+			Fact(name("height") , (val == "152 - 160"));
+			or
+			Fact(name("height") , ( val == "160 - 168"));
+		)
+		(
+			Fact(name("type") , (val == "Trekkingowy"));
+			or
+			Fact(name("type") , (val == "Crossowy"));
+			or
+			Fact(name("type") , (val == "Miejski"));
+		)
 	then
 		Engine.Answer("Wielkość ramy: M (19 cali)");
 end
 
 rule "ahtrek2"
 	when
-		Fact(name("height") && (val == "168 - 175" || val == "175 - 183"));
-		Fact(name("type") && (val == "Trekkingowy" || val == "Crossowy" || val == "Miejski"));
+		(
+			Fact(name("height") , (val == "168 - 175" ));
+			or
+			Fact(name("height") , (val == "175 - 183"));
+		)
+		(
+			Fact(name("type") , (val == "Trekkingowy" ));
+			or
+			Fact(name("type") , (val == "Crossowy" ));
+			or
+			Fact(name("type") , ( val == "Miejski"));
+		)
 	then
 		Engine.Answer("Wielkość ramy: L (21 cali)");
 end
 
 rule "ahtrek3"
 	when
-		Fact(name("height") && (val == "183 - 191"));
-		Fact(name("type") && (val == "Trekkingowy" || val == "Crossowy" || val == "Miejski"));
+		Fact(name("height") , (val == "183 - 191"));
+		(
+			Fact(name("type") , (val == "Trekkingowy" ));
+			or
+			Fact(name("type") , ( val == "Crossowy"));
+			or
+			Fact(name("type") , (val == "Miejski"));
+		)
 	then
 		Engine.Answer("Wielkość ramy: XL (23 cali)");
 end
@@ -477,9 +511,9 @@ end
 
 rule "arowertrek1"
 	when
-		Fact(name("type") && val == "Trekkingowy");
-		Fact(name("amort") && val == "Tak");
-		Fact(name("light2") && val == "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)");
+		Fact(name("type") , val == "Trekkingowy");
+		Fact(name("amort") , val == "Tak");
+		Fact(name("light2") , val == "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)");
 	then
 		Engine.Propose("Kross Trans Siberian 2014 - 1499 zł");
 		Engine.Koszt(1499);
@@ -487,8 +521,8 @@ end
 
 rule "arowertrek2"
 	when
-		Fact(name("type") && val == "Trekkingowy");
-		Fact(name("amort") && val == "Nie");
+		Fact(name("type") , val == "Trekkingowy");
+		Fact(name("amort") , val == "Nie");
 	then
 		Engine.Propose("Grand Autan 2013 - 749 zł");
 		Engine.Koszt(749);
@@ -496,9 +530,9 @@ end
 
 rule "arowertrek3"
 	when
-		Fact(name("type") && val == "Trekkingowy");
-		Fact(name("amort") && val == "Tak");
-		not Fact(name("light2") && val == "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)");
+		Fact(name("type") , val == "Trekkingowy");
+		Fact(name("amort") , val == "Tak");
+		not Fact(name("light2") , val == "Dynamo w piaście (zawsze dostępne, bez wad zwykłego dynamo)");
 	then
 		Engine.Propose("Kross Trans Atlantic 2014 - 1299 zł");
 		Engine.Koszt(1299);
@@ -506,7 +540,7 @@ end
 
 rule "arowergórski"
 	when
-		Fact(name("type") && val == "Górski");
+		Fact(name("type") , val == "Górski");
 	then
 		Engine.Propose("RockRider 5.1 C1 B'TWIN - 800 zł");
 		Engine.Koszt(800);
@@ -514,8 +548,8 @@ end
 
 rule "akask"
 	when
-		not (Fact(name("who") && val == "Dziecko"));
-		Fact(name("equip") && val == "Kask");
+		not (Fact(name("who") , val == "Dziecko"));
+		Fact(name("equip") , val == "Kask");
 	then
 		Engine.Addons("Kask CROSSFIRE niebieski 2013 BELL - 100 zł");
 		Engine.Koszt(100);
@@ -523,8 +557,8 @@ end
 
 rule "akaskd"
 	when
-		Fact(name("who") && val == "Dziecko");
-		Fact(name("equip") && val == "Kask");
+		Fact(name("who") , val == "Dziecko");
+		Fact(name("equip") , val == "Kask");
 	then
 		Engine.Addons("Kask Gavroche One Boy B'TWIN - 30 zł");
 		Engine.Koszt(100);
@@ -532,7 +566,7 @@ end
 
 rule "arowerszosowy"
 	when
-		Fact(name("type") && val == "Szosowy");
+		Fact(name("type") , val == "Szosowy");
 	then
 		Engine.Propose("Rower szosowy TRIBAN 3 UK B'TWIN - 1600 zł");
 		Engine.Koszt(1600);
@@ -540,7 +574,7 @@ end
 
 rule "arowercrossowy"
 	when
-		Fact(name("type") && val == "Crossowy");
+		Fact(name("type") , val == "Crossowy");
 	then
 		Engine.Propose("Kross Evado 1.0 2014 - 1400 zł");
 		Engine.Koszt(1400);
@@ -548,7 +582,7 @@ end
 
 rule "arowermmiejski"
 	when
-		Fact(name("type") && val == "Miejski");
+		Fact(name("type") , val == "Miejski");
 	then
 		Engine.Propose("Rower miejski Elops 1 B'TWIN - 600 zł");
 		Engine.Koszt(600);
@@ -556,7 +590,7 @@ end
 
 rule "aswiatlo1"
 	when
-		Fact(name("light2") && val == "Elektryczne (na baterie)");
+		Fact(name("light2") , val == "Elektryczne (na baterie)");
 	then
 		Engine.Addons("Lumz zest. 10LUX + tylna B'TWIN\" - 90 zł");
 		Engine.Koszt(90);
